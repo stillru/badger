@@ -11,14 +11,54 @@ agent = {
 
 // draw front badge design onto canvas
 drawBadgeFront = function(agent) {
-	var blank, logo, scancode, codename, flag, level,
+	var path, path2, path3, text, text2, text3, logo, scancode, codename, flag, level,
 		canvas = $('#canvas')[0];
 
 	paper.setup(canvas);
 
 	with (paper) {
-		blank = new Raster((agent.enlightened ? 'enl' : 'res') + '-blank-front', new Point(39, 61));
-		blank.scale(0.419, 0.402);
+        
+        path = new Path({
+			segments: [[34, 5], [5, 34], [5, 195], [185, 195], [185, 5]],
+			fillColor: 'red',
+			closed: true
+		});
+		
+		path2 = new Path({
+			segments: [[5, 198], [185, 198], [185, 220], [5, 220]],
+			fillColor: 'red',
+			closed: true
+		});
+		
+		path3 = new Path({
+			segments: [[5, 230], [185, 230], [185, 250], [157, 250], [147, 240], [5, 240]],
+			fillColor: 'red',
+			closed: true
+		});
+		
+		text = new PointText({
+			point: [150, 298],
+			content: 'MEMBER',
+			fillColor: 'black',
+			fontSize: 10,
+			font: 'Iceland'
+		});
+		
+		text2 = new PointText({
+			point: [5, 298],
+			content: 'OYM-042/Operation Level',
+			fillColor: 'black',
+			fontSize: 10,
+			font: 'Iceland'
+		});
+		
+		text3 = new PointText({
+			point: [5, 288],
+			content: 'INGRESS COMMUNITY OPS',
+			fillColor: 'black',
+			fontSize: 16,
+			font: 'Iceland'
+		});
 
 		logo = new Raster('badge-logo', new Point(view.center._x, 113));
 		logo.size = new Size(250, 250);
@@ -50,7 +90,7 @@ drawBadgeFront = function(agent) {
 			justification: 'center'
 		}
 	}
-},
+}, 
 
 // download canvas as an image
 saveImage = function(filename) {
