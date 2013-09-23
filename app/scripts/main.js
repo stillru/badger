@@ -11,7 +11,7 @@ agent = {
 
 // draw front badge design onto canvas
 drawBadgeFront = function(agent) {
-	var path, path2, path3, path4, text, text2, text3, text4, logo, scancode, codename, flag, level,
+	var path, path2, path3, path4, text, text2, text3, text4, text5, logo, scancode, codename, flag, level,
 		canvas = $('#canvas')[0];
 
 	paper.setup(canvas);
@@ -76,6 +76,15 @@ drawBadgeFront = function(agent) {
 			justification: 'right'
 		});
 		text4.rotate(90);
+
+		text5 = new PointText({
+			point: [10, 260],
+			content: 'Status: ', // Placeholder for whatever
+			fillColor: 'black',
+			fontSize: 26,
+			font: 'Iceland',
+			justification: 'left'
+		});
 
 		logo = new Raster('badge-logo', new Point(view.center._x, 113));
 		logo.size = new Size(250, 250);
