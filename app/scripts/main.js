@@ -11,7 +11,7 @@ agent = {
 
 // draw front badge design onto canvas
 drawBadgeFront = function(agent) {
-	var path, path2, path3, text, text2, text3, logo, scancode, codename, flag, level,
+	var path, path2, path3, path4, text, text2, text3, text4, logo, scancode, codename, flag, level,
 		canvas = $('#canvas')[0];
 
 	paper.setup(canvas);
@@ -19,25 +19,31 @@ drawBadgeFront = function(agent) {
 	with (paper) {
         
         path = new Path({
-			segments: [[34, 5], [5, 34], [5, 195], [185, 195], [185, 5]],
+			segments: [[34, 3], [3, 34], [3, 195], [185, 195], [185, 3]],
 			fillColor: 'red',
 			closed: true
 		});
 		
 		path2 = new Path({
-			segments: [[5, 198], [185, 198], [185, 220], [5, 220]],
+			segments: [[3, 198], [185, 198], [185, 220], [3, 220]],
 			fillColor: 'red',
 			closed: true
 		});
 		
 		path3 = new Path({
-			segments: [[5, 230], [185, 230], [185, 250], [157, 250], [147, 240], [5, 240]],
+			segments: [[3, 273], [185, 273], [185, 300], [135, 300], [125, 290], [3, 290]],
 			fillColor: 'red',
+			closed: true
+		});
+
+		path4 = new Path({
+			segments: [[163, 3], [163, 186], [166, 186], [166, 3]],
+			fillColor: 'fff',
 			closed: true
 		});
 		
 		text = new PointText({
-			point: [150, 298],
+			point: [148, 298],
 			content: 'MEMBER',
 			fillColor: 'black',
 			fontSize: 10,
@@ -53,12 +59,23 @@ drawBadgeFront = function(agent) {
 		});
 		
 		text3 = new PointText({
-			point: [5, 288],
+			point: [view.center._x, 285],
 			content: 'INGRESS COMMUNITY OPS',
 			fillColor: 'black',
 			fontSize: 16,
-			font: 'Iceland'
+			font: 'Iceland',
+			justification: 'center'
 		});
+
+		text4 = new PointText({
+			point: [250, 85],
+			content: 'Faction:Resistance', // Need code for change faction
+			fillColor: 'black',
+			fontSize: 20,
+			font: 'Iceland',
+			justification: 'right'
+		});
+		text4.rotate(90);
 
 		logo = new Raster('badge-logo', new Point(view.center._x, 113));
 		logo.size = new Size(250, 250);
