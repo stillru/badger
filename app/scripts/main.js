@@ -20,21 +20,22 @@ drawBadgeFront = function(agent) {
         
         path = new Path({
 			segments: [[34, 3], [3, 34], [3, 195], [185, 195], [185, 3]],
-			fillColor: 'red',
+			fillColor: myColor,
 			closed: true
 		});
 		
 		path2 = new Path({
 			segments: [[3, 198], [185, 198], [185, 220], [3, 220]],
-			fillColor: 'red',
+			fillColor: myColor,
 			closed: true
 		});
 		
 		path3 = new Path({
 			segments: [[3, 273], [185, 273], [185, 300], [135, 300], [125, 290], [3, 290]],
-			fillColor: 'red',
+			fillColor: myColor,
 			closed: true
 		});
+
 
 		path4 = new Path({
 			segments: [[163, 3], [163, 186], [166, 186], [166, 3]],
@@ -69,7 +70,7 @@ drawBadgeFront = function(agent) {
 
 		text4 = new PointText({
 			point: [250, 85],
-			content: 'Faction:Resistance', // Need code for change faction
+			content: 'Faction: ' +myFaction, 
 			fillColor: 'black',
 			fontSize: 20,
 			font: 'Iceland',
@@ -252,11 +253,14 @@ $('#factionRadio').buttonset().on('click', function(event) {
 	agent.enlightened = (event.target.id === 'factionEnlightened');
 
 	if (event.target.id === 'factionEnlightened') {
-		$('.resistance.badge-base').hide();
-		$('.enlightened.badge-base').show();
+		myColor = 'green';
+		myFaction = 'Enlightened';
+	} else if (event.target.id === 'factionResistance'){
+		myColor = 'blue';
+		myFaction = 'Resistance';
 	} else {
-		$('.resistance.badge-base').show();
-		$('.enlightened.badge-base').hide();
+		myColor = 'red';
+		myFaction = 'Custom';
 	}
 
 	setTimeout(function() { drawBadgeFront(agent); }, 100);
