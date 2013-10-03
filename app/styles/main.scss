@@ -28,6 +28,10 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 	position: absolute;
 }
 
+.badge-back.canvas {
+	position: absolute;
+}
+
 canvas {
 	position: absolute;
 	left: -1px;
@@ -59,7 +63,7 @@ canvas {
 	font-family: Economica;
 	color: #000;
 	position: absolute;
-	bottom: 12.3mm;
+	top: 59mm;
 	left: 2.3mm;
 }
 
